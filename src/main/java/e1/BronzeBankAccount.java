@@ -1,11 +1,11 @@
 package e1;
 
-public class SilverBankAccount extends DecoratorBankAccount {
+public class BronzeBankAccount extends DecoratorBankAccount {
 
     private static final int MAX_WITHDRAW_WITHOUT_FEE = 100;
     private static final int FEE = 1;
 
-    public SilverBankAccount(BankAccount base) {
+    public BronzeBankAccount(BankAccount base) {
         super(base);
     }
 

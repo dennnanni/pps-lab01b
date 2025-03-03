@@ -15,7 +15,7 @@ public class BankAccountTest {
 
     @BeforeEach
     void init(){
-        this.account = new SilverBankAccount(new DecoratorBankAccount(new CoreBankAccount()));
+        this.account = new BronzeBankAccount(new DecoratorBankAccount(new CoreBankAccount()));
     }
 
     @Test
