@@ -10,13 +10,11 @@ public class BronzeBankAccount extends DecoratorBankAccount {
     }
 
     @Override
-    public int getFee(int amount) {
-        return amount < MAX_WITHDRAW_WITHOUT_FEE ? 0 : FEE;
-    }
-
-    @Override
-    public boolean canWithdraw(int amount) {
-        System.out.println(getBalance() >= amount + getFee(amount));
-        return getBalance() >= amount + getFee(amount);
+    public void withdraw(int amount) {
+        int fee = amount > MAX_WITHDRAW_WITHOUT_FEE ? FEE : 0;
+        if (amount + fee > getBalance()) {
+            throw new IllegalStateException();
+        }
+        super.withdraw(amount + fee);
     }
 }

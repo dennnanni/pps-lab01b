@@ -17,10 +17,17 @@ public class GoldBankAccountTest extends BankAccountTest {
     }
 
     @Test
+    public void testCanWithdraw() {
+        this.account.deposit(DEPOSIT);
+        this.account.withdraw(WITHDRAW);
+        assertEquals(DEPOSIT - WITHDRAW, this.account.getBalance());
+    }
+
+    @Test
     public void testCanWithdrawMoreThanBalance() {
         this.account.deposit(DEPOSIT);
         this.account.withdraw(WITHDRAW);
-        assertEquals(DEPOSIT - WITHDRAW - this.account.getFee(DEPOSIT + WITHDRAW), this.account.getBalance());
+        assertEquals(DEPOSIT - WITHDRAW, this.account.getBalance());
     }
 
     @Test

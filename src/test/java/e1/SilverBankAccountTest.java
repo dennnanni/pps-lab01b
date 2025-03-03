@@ -3,16 +3,24 @@ package e1;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SilverBankAccountTest extends BankAccountTest {
 
-    private static final int WITHDRAW_1 = 200;
+    private static final int WITHDRAW = 200;
 
     @Override
     @BeforeEach
     public void init() {
         this.account = new SilverBankAccount(new CoreBankAccount());
+    }
+
+    @Test
+    public void testCanWithdraw() {
+        this.account.deposit(DEPOSIT);
+        this.account.withdraw(WITHDRAW);
+        assertEquals(DEPOSIT - WITHDRAW - 1, this.account.getBalance());
     }
 
     @Test
