@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public abstract class BankAccountTest {
 
     protected static final int DEPOSIT = 1000;
-    protected static final int WITHDRAW = 1000;
+    private static final int WITHDRAW = 200;
     protected DecoratorBankAccount account;
 
     @BeforeEach

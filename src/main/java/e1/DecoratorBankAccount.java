@@ -20,7 +20,7 @@ public class DecoratorBankAccount implements BankAccount {
 
     @Override
     public void withdraw(int amount) {
-        if (this.getBalance() < amount){
+        if (!canWithdraw(amount)){
             throw new IllegalStateException();
         }
         base.withdraw(amount + getFee(amount));
