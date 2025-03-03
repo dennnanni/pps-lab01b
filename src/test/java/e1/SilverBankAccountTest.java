@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class SilverBankAccountTest extends BankAccountTest {
 
     private static final int WITHDRAW_1 = 200;
-    private static final int WITHDRAW_2 = 50;
 
+    @Override
     @BeforeEach
     public void init() {
         this.account = new SilverBankAccount(new CoreBankAccount());
