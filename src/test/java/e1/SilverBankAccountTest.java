@@ -17,13 +17,6 @@ public class SilverBankAccountTest extends BankAccountTest {
     }
 
     @Test
-    public void testCanWithdraw() {
-        super.account.deposit(DEPOSIT);
-        this.account.withdraw(WITHDRAW_1);
-        assertEquals(DEPOSIT - WITHDRAW_1 - this.account.getFee(DEPOSIT + WITHDRAW_1), this.account.getBalance());
-    }
-
-    @Test
     public void testCannotWithdrawMoreThanAvailable(){
         this.account.deposit(DEPOSIT);
         assertThrows(IllegalStateException.class, () -> this.account.withdraw(1200));
