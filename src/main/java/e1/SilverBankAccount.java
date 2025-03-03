@@ -7,8 +7,8 @@ public class SilverBankAccount extends DecoratorBankAccount {
     }
 
     @Override
-    public int getFee() {
-        return 1;
+    public int getFee(int amount) {
+        return amount < 100 ? 0 : 1;
     }
 
 }

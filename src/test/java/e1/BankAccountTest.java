@@ -39,4 +39,11 @@ public class BankAccountTest {
         assertThrows(IllegalStateException.class, () -> this.account.withdraw(1200));
     }
 
+    @Test
+    public void testConditionalFee() {
+        this.account.deposit(1000);
+        this.account.withdraw(50);
+        assertEquals(950, this.account.getBalance());
+    }
+
 }

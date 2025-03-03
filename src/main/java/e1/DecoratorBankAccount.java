@@ -23,10 +23,10 @@ public class DecoratorBankAccount implements BankAccount {
         if (this.getBalance() < amount){
             throw new IllegalStateException();
         }
-        base.withdraw(amount + getFee());
+        base.withdraw(amount + getFee(amount));
     }
 
-    public int getFee() {
+    public int getFee(int amount) {
         return 0;
     }
 
