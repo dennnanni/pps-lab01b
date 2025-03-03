@@ -4,19 +4,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class BankAccountTest {
+public abstract class BankAccountTest {
 
-    private static final int DEPOSIT = 1000;
-    private static final int WITHDRAW_1 = 200;
-    private static final int WITHDRAW_2 = 50;
-    private DecoratorBankAccount account;
+    protected static final int DEPOSIT = 1000;
+    protected DecoratorBankAccount account;
 
     @BeforeEach
-    void init(){
-        this.account = new BronzeBankAccount(new DecoratorBankAccount(new CoreBankAccount()));
-    }
+    public abstract void init();
 
     @Test
     public void testInitiallyEmpty() {
@@ -28,25 +23,4 @@ public class BankAccountTest {
         this.account.deposit(DEPOSIT);
         assertEquals(DEPOSIT, this.account.getBalance());
     }
-
-    @Test
-    public void testCanWithdraw() {
-        this.account.deposit(DEPOSIT);
-        this.account.withdraw(WITHDRAW_1);
-        assertEquals(DEPOSIT - WITHDRAW_1 - this.account.getFee(DEPOSIT + WITHDRAW_1), this.account.getBalance());
-    }
-
-    @Test
-    public void testCannotWithdrawMoreThanAvailable(){
-        this.account.deposit(DEPOSIT);
-        assertThrows(IllegalStateException.class, () -> this.account.withdraw(1200));
-    }
-
-    @Test
-    public void testConditionalFee() {
-        this.account.deposit(DEPOSIT);
-        this.account.withdraw(WITHDRAW_2);
-        assertEquals(DEPOSIT - WITHDRAW_2, this.account.getBalance());
-    }
-
 }
