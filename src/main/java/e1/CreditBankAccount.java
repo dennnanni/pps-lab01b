@@ -2,11 +2,7 @@ package e1;
 
 public class CreditBankAccount extends DecoratorBankAccount {
 
-    private int credit = 0;
-
-    public CreditBankAccount(BankAccount base) {
-        super(base);
-    }
+    private final int credit;
 
     public CreditBankAccount(BankAccount base, int credit) {
         super(base);

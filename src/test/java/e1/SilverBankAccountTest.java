@@ -10,7 +10,7 @@ public class SilverBankAccountTest extends BankAccountTest {
     private static final int WITHDRAW = 200;
 
     public void init() {
-        this.account = new CreditBankAccount(new FeeBankAccount(new CoreBankAccount(), amount -> 1));
+        this.account = new DebitBankAccount(new FeeBankAccount(new CoreBankAccount(), amount -> 1));
     }
 
     @Test

@@ -11,7 +11,7 @@ public class BronzeBankAccountTest extends BankAccountTest {
     private static final int WITHDRAW = 50;
 
     public void init() {
-        this.account = new CreditBankAccount(new FeeBankAccount(new CoreBankAccount(), amount -> amount > 100 ? 1 : 0));
+        this.account = new DebitBankAccount(new FeeBankAccount(new CoreBankAccount(), amount -> amount > 100 ? 1 : 0));
     }
 
     @Test
