@@ -10,8 +10,6 @@ public class GoldBankAccountTest extends BankAccountTest {
     private static final int WITHDRAW = 1200;
     private static final int WITHDRAW_MORE_THAN_LIMIT = 1600;
 
-    @Override
-    @BeforeEach
     public void init() {
         this.account = new GoldBankAccount(new CoreBankAccount());
     }

@@ -10,8 +10,6 @@ public class SilverBankAccountTest extends BankAccountTest {
 
     private static final int WITHDRAW = 200;
 
-    @Override
-    @BeforeEach
     public void init() {
         this.account = new SilverBankAccount(new CoreBankAccount());
     }

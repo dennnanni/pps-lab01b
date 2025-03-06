@@ -1,5 +1,6 @@
 package e1;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,6 +11,11 @@ public abstract class BankAccountTest {
     protected DecoratorBankAccount account;
 
     public abstract void init();
+
+    @BeforeEach
+    public void setUp() {
+        this.init();
+    }
 
     @Test
     public void testInitiallyEmpty() {
