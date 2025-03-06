@@ -1,6 +1,5 @@
 package e1;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -11,7 +10,7 @@ public class GoldBankAccountTest extends BankAccountTest {
     private static final int WITHDRAW_MORE_THAN_LIMIT = 1600;
 
     public void init() {
-        this.account = new GoldBankAccount(new CoreBankAccount());
+        this.account = new CreditBankAccount(new CoreBankAccount(), 500);
     }
 
     @Test

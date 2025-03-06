@@ -1,6 +1,5 @@
 package e1;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +10,7 @@ public class SilverBankAccountTest extends BankAccountTest {
     private static final int WITHDRAW = 200;
 
     public void init() {
-        this.account = new SilverBankAccount(new CoreBankAccount());
+        this.account = new CreditBankAccount(new FeeBankAccount(new CoreBankAccount(), amount -> 1));
     }
 
     @Test
