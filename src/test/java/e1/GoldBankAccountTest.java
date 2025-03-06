@@ -10,7 +10,7 @@ public class GoldBankAccountTest extends BankAccountTest {
     private static final int WITHDRAW_MORE_THAN_LIMIT = 1600;
 
     public void init() {
-        this.account = new CreditBankAccount(new CoreBankAccount(), 500);
+        this.account = factory.createGoldBankAccount();
     }
 
     @Test

@@ -9,6 +9,7 @@ public abstract class BankAccountTest {
 
     protected static final int DEPOSIT = 1000;
     protected DecoratorBankAccount account;
+    protected BankAccountFactory factory = new BankAccountFactoryImpl();
 
     public abstract void init();
 
