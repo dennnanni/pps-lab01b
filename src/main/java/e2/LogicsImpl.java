@@ -4,21 +4,21 @@ import java.util.*;
 
 public class LogicsImpl implements Logics {
 	
-	private final Pair<Integer,Integer> pawn;
-	private Piece knight;
+	private final Piece pawn;
+	private final Piece knight;
 	private final Random random = new Random();
 	private final int size;
 	 
     public LogicsImpl(int size){
     	this.size = size;
-        this.pawn = this.randomEmptyPosition();
+        this.pawn = new Pawn(size, this.randomEmptyPosition());
         this.knight = new Knight(size, this.randomEmptyPosition());
     }
 
 	public LogicsImpl(int size, int knightX, int knightY, int pawnX, int pawnY) {
 		this.size = size;
 		this.knight = new Knight(size, new Pair<>(knightX, knightY));
-		this.pawn = new Pair<>(pawnX, pawnY);
+		this.pawn = new Pawn(size, new Pair<>(pawnX, pawnY));
 	}
 
 	private final Pair<Integer,Integer> randomEmptyPosition(){
@@ -29,7 +29,7 @@ public class LogicsImpl implements Logics {
     
 	@Override
 	public boolean hit(int row, int col) {
-		return this.knight.hit(row, col, this.pawn);
+		return this.knight.hit(row, col, this.pawn.getPosition());
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class LogicsImpl implements Logics {
 
 	@Override
 	public boolean hasPawn(int row, int col) {
-		return this.pawn.equals(new Pair<>(row,col));
+		return this.pawn.getPosition().equals(new Pair<>(row,col));
 	}
 
 	@Override
