@@ -45,7 +45,10 @@ public class LogicTest {
 
     @Test
     public void testCanMoveInRightPosition() {
-        logic.hit(2, 1);
-        assertTrue(logic.hasKnight(2, 1));
+        assertAll(
+                () -> assertFalse(logic.hit(2, 1)),
+                () -> assertTrue(logic.hasKnight(2, 1))
+        );
     }
+
 }
