@@ -2,7 +2,7 @@ package e2;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LogicTest {
 
@@ -21,5 +21,11 @@ public class LogicTest {
         Logics logic = new LogicsImpl(5);
         Pair<Integer, Integer> knight = logic.getKnightPosition();
         assertFalse(logic.hit(knight.getX(), knight.getY()));
+    }
+
+    @Test
+    public void testHit() {
+        Logics logic = new LogicsImpl(5, 0, 0, 1, 2);
+        assertTrue(logic.hit(1, 2));
     }
 }
