@@ -13,8 +13,8 @@ public class LogicTest {
 
     @BeforeEach
     public void setUp() {
-        Piece activePiece = new Knight(SIZE, new Pair<>(0, 0));
-        Piece passivePiece = new Pawn(SIZE, new Pair<>(PAWN_X, PAWN_Y));
+        Piece activePiece = new Knight(new Pair<>(0, 0));
+        Piece passivePiece = new Pawn(new Pair<>(PAWN_X, PAWN_Y));
         logic = new LogicsImpl(SIZE, activePiece, passivePiece);
     }
 

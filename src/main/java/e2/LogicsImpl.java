@@ -11,8 +11,8 @@ public class LogicsImpl implements Logics {
 	 
     public LogicsImpl(int size){
     	this.size = size;
-        this.passivePiece = new Pawn(size, this.randomEmptyPosition());
-        this.activePiece = new Knight(size, this.randomEmptyPosition());
+        this.passivePiece = new Pawn(this.randomEmptyPosition());
+        this.activePiece = new Knight(this.randomEmptyPosition());
     }
 
 	public LogicsImpl(int size, Piece activePiece, Piece passivePiece) {

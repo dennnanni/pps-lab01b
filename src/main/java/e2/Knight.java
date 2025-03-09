@@ -2,8 +2,8 @@ package e2;
 
 public class Knight extends PieceImpl {
 
-    public Knight(int size, Pair<Integer, Integer> position) {
-        super(size, position);
+    public Knight(Pair<Integer, Integer> position) {
+        super(position);
     }
 
     @Override
@@ -15,7 +15,6 @@ public class Knight extends PieceImpl {
 
     @Override
     public boolean hit(int row, int col, Piece piece) {
-        // Below a compact way to express allowed moves for the knight
         if (isValidMove(row, col)) {
             setPosition(row, col);
             return piece.getPosition().equals(getPosition());

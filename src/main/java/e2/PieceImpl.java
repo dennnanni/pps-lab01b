@@ -3,10 +3,8 @@ package e2;
 public abstract class PieceImpl implements Piece {
 
     private Pair<Integer, Integer> position;
-    private final int size;
 
-    public PieceImpl(int size, Pair<Integer, Integer> position) {
-        this.size = size;
+    public PieceImpl(Pair<Integer, Integer> position) {
         this.position = new Pair<>(position.getX(), position.getY());
     }
 
@@ -18,9 +16,5 @@ public abstract class PieceImpl implements Piece {
     @Override
     public void setPosition(int x, int y) {
         this. position = new Pair<>(x, y);
-    }
-
-    public int getFieldSize() {
-        return this.size;
     }
 }
