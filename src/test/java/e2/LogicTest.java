@@ -28,4 +28,11 @@ public class LogicTest {
         Logics logic = new LogicsImpl(5, 0, 0, 1, 2);
         assertTrue(logic.hit(1, 2));
     }
+
+    @Test
+    public void testCannotMoveInWrongPosition() {
+        Logics logic = new LogicsImpl(5, 0, 0, 1, 2);
+        logic.hit(0, 1);
+        assertFalse(logic.hasKnight(0, 1));
+    }
 }
