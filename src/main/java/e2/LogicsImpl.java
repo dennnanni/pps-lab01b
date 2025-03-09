@@ -8,15 +8,24 @@ public class LogicsImpl implements Logics {
 	private final Piece activePiece;
 	private final Random random = new Random();
 	private final int size;
-	 
-    public LogicsImpl(int size){
-    	this.size = size;
-        this.passivePiece = new Pawn(this.randomEmptyPosition());
-        this.activePiece = new Knight(this.randomEmptyPosition());
-    }
+
+	public LogicsImpl(int size, Piece activePiece, Piece passivePiece, boolean keepPositions) {
+		this.size = size;
+		if (activePiece.getPosition().equals(passivePiece.getPosition())) {
+			throw new IllegalArgumentException("Positions cannot be the same for two pieces");
+		}
+		isInBound(activePiece.getPosition().getX(), activePiece.getPosition().getY());
+		isInBound(passivePiece.getPosition().getX(), passivePiece.getPosition().getY());
+		this.activePiece = activePiece;
+		this.passivePiece = passivePiece;
+	}
 
 	public LogicsImpl(int size, Piece activePiece, Piece passivePiece) {
 		this.size = size;
+		Pair<Integer, Integer> activePiecePosition = randomEmptyPosition();
+		activePiece.setPosition(activePiecePosition.getX(), activePiecePosition.getY());
+		Pair<Integer, Integer> passivePiecePosition = randomEmptyPosition();
+		passivePiece.setPosition(passivePiecePosition.getX(), passivePiecePosition.getY());
 		this.activePiece = activePiece;
 		this.passivePiece = passivePiece;
 	}

@@ -10,17 +10,19 @@ public class LogicTest {
     public static final int PAWN_X = 1;
     public static final int PAWN_Y = 2;
     private Logics logic;
+    private Piece activePiece;
+    private Piece passivePiece;
 
     @BeforeEach
     public void setUp() {
-        Piece activePiece = new Knight(new Pair<>(0, 0));
-        Piece passivePiece = new Pawn(new Pair<>(PAWN_X, PAWN_Y));
-        logic = new LogicsImpl(SIZE, activePiece, passivePiece);
+        activePiece = new Knight(new Pair<>(0, 0));
+        passivePiece = new Pawn(new Pair<>(PAWN_X, PAWN_Y));
+        logic = new LogicsImpl(SIZE, activePiece, passivePiece, true);
     }
 
     @Test
     public void testAreInDifferentPositions() {
-        logic = new LogicsImpl(SIZE);
+        logic = new LogicsImpl(SIZE, activePiece, passivePiece);
         Pair<Integer, Integer> knight = logic.getKnightPosition();
         assertFalse(logic.hit(knight.getX(), knight.getY()));
     }
