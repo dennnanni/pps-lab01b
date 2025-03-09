@@ -14,7 +14,9 @@ public class GUI extends JFrame {
     private final static int SIZE = 5;
     
     public GUI() {
-        this.logics = new LogicsImpl(SIZE);
+        Piece activePiece = new Knight(new Pair<>(0, 0));
+        Piece passivePiece = new Pawn(new Pair<>(0, 0));
+        this.logics = new LogicsImpl(SIZE, activePiece, passivePiece);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(100*SIZE, 100*SIZE);
         
