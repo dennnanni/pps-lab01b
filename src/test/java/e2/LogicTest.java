@@ -46,4 +46,9 @@ public class LogicTest {
         );
     }
 
+    @Test
+    public void testCannotMoveOutsideField() {
+        assertThrows(IndexOutOfBoundsException.class, () -> logic.hit(-2, -1));
+    }
+
 }
