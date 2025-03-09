@@ -43,17 +43,17 @@ public class LogicsImpl implements Logics {
 	}
 
 	@Override
-	public boolean hasKnight(int row, int col) {
+	public boolean hasActivePiece(int row, int col) {
 		return this.activePiece.getPosition().equals(new Pair<>(row,col));
 	}
 
 	@Override
-	public boolean hasPawn(int row, int col) {
+	public boolean hasPassivePiece(int row, int col) {
 		return this.passivePiece.getPosition().equals(new Pair<>(row,col));
 	}
 
 	@Override
-	public Pair<Integer, Integer> getKnightPosition() {
+	public Pair<Integer, Integer> getActivePiecePosition() {
 		return this.activePiece.getPosition();
 	}
 

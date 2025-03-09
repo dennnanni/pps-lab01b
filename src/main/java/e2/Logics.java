@@ -3,33 +3,33 @@ package e2;
 public interface Logics{
     
     /**
-     * attempt to move Knight on position row,col, if possible
+     * attempt to move active piece on position row,col, if possible
      * 
      * @param row
      * @param col
-     * @return whether the pawn has been hit 
+     * @return whether the passive piece has been hit
      */
     boolean hit(int row, int col);
     
     /**
      * @param row
      * @param col
-     * @return whether position row,col has the knight
+     * @return whether position row,col has the active piece
      */
-    boolean hasKnight(int row, int col);
+    boolean hasActivePiece(int row, int col);
     
     /**
      * @param row
      * @param col
-     * @return whether position row,col has the pawn
+     * @return whether position row,col has the passive piece
      */
-    boolean hasPawn(int row, int col);
+    boolean hasPassivePiece(int row, int col);
 
     /**
      *
-     * @return the position of the knight
+     * @return the position of the active piece
      */
-    Pair<Integer, Integer> getKnightPosition();
+    Pair<Integer, Integer> getActivePiecePosition();
 
     /**
      * Check if the given position lies within the boundaries of the field

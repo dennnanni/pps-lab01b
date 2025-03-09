@@ -23,7 +23,7 @@ public class LogicTest {
     @Test
     public void testAreInDifferentPositions() {
         logic = new LogicsImpl(SIZE, activePiece, passivePiece);
-        Pair<Integer, Integer> knight = logic.getKnightPosition();
+        Pair<Integer, Integer> knight = logic.getActivePiecePosition();
         assertFalse(logic.hit(knight.getX(), knight.getY()));
     }
 
@@ -35,14 +35,14 @@ public class LogicTest {
     @Test
     public void testCannotMoveInWrongPosition() {
         logic.hit(0, 1);
-        assertFalse(logic.hasKnight(0, 1));
+        assertFalse(logic.hasActivePiece(0, 1));
     }
 
     @Test
     public void testCanMoveInRightPosition() {
         assertAll(
                 () -> assertFalse(logic.hit(2, 1)),
-                () -> assertTrue(logic.hasKnight(2, 1))
+                () -> assertTrue(logic.hasActivePiece(2, 1))
         );
     }
 

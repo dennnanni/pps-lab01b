@@ -45,8 +45,8 @@ public class GUI extends JFrame {
     
     private void draw() {
     	for (Entry<JButton,Pair<Integer,Integer>> entry: this.buttons.entrySet()) {
-    		String str = logics.hasPawn(entry.getValue().getX(), entry.getValue().getY()) ? "*" :
-    					 logics.hasKnight(entry.getValue().getX(), entry.getValue().getY()) ? "K" : " ";
+    		String str = logics.hasPassivePiece(entry.getValue().getX(), entry.getValue().getY()) ? "*" :
+    					 logics.hasActivePiece(entry.getValue().getX(), entry.getValue().getY()) ? "K" : " ";
     		entry.getKey().setText(str);
     	}
     }
