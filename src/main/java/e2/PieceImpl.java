@@ -23,10 +23,4 @@ public abstract class PieceImpl implements Piece {
     public int getFieldSize() {
         return this.size;
     }
-
-    protected void checkInBound(int row, int col) {
-        if (row <0 || col <0 || row >= getFieldSize() || col >= getFieldSize()) {
-            throw new IndexOutOfBoundsException();
-        }
-    }
 }

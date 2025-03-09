@@ -15,7 +15,6 @@ public class Knight extends PieceImpl {
 
     @Override
     public boolean hit(int row, int col, Piece piece) {
-        checkInBound(row, col);
         // Below a compact way to express allowed moves for the knight
         if (isValidMove(row, col)) {
             setPosition(row, col);

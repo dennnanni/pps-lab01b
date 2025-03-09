@@ -30,4 +30,13 @@ public interface Logics{
      * @return the position of the knight
      */
     Pair<Integer, Integer> getKnightPosition();
+
+    /**
+     * Check if the given position lies within the boundaries of the field
+     *
+     * @param row
+     * @param col
+     * @throws IndexOutOfBoundsException if the position is not within the field
+     */
+    void isInBound(int row, int col) throws IndexOutOfBoundsException;
 }
