@@ -15,6 +15,8 @@ public abstract class PieceImpl implements Piece {
 
     @Override
     public void setPosition(int x, int y) {
-        this. position = new Pair<>(x, y);
+        if (isValidMove(x, y)) {
+            this.position = new Pair<>(x, y);
+        }
     }
 }
