@@ -15,10 +15,10 @@ public class LogicsImpl implements Logics {
         this.knight = new Knight(size, this.randomEmptyPosition());
     }
 
-	public LogicsImpl(int size, int knightX, int knightY, int pawnX, int pawnY) {
+	public LogicsImpl(int size, Piece activePiece, Piece passivePiece) {
 		this.size = size;
-		this.knight = new Knight(size, new Pair<>(knightX, knightY));
-		this.pawn = new Pawn(size, new Pair<>(pawnX, pawnY));
+		this.knight = new Knight(size, activePiece.getPosition());
+		this.pawn = new Pawn(size, passivePiece.getPosition());
 	}
 
 	private final Pair<Integer,Integer> randomEmptyPosition(){

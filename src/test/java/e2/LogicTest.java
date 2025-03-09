@@ -6,18 +6,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LogicTest {
 
+    private static final int SIZE = 5;
     public static final int PAWN_X = 1;
     public static final int PAWN_Y = 2;
     private Logics logic;
 
     @BeforeEach
     public void setUp() {
-        logic = new LogicsImpl(5, 0, 0, PAWN_X, PAWN_Y);
+        Piece activePiece = new Knight(SIZE, new Pair<>(0, 0));
+        Piece passivePiece = new Pawn(SIZE, new Pair<>(PAWN_X, PAWN_Y));
+        logic = new LogicsImpl(SIZE, activePiece, passivePiece);
     }
 
     @Test
     public void testAreInDifferentPositions() {
-        logic = new LogicsImpl(5);
+        logic = new LogicsImpl(SIZE);
         Pair<Integer, Integer> knight = logic.getKnightPosition();
         assertFalse(logic.hit(knight.getX(), knight.getY()));
     }
