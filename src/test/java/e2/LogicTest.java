@@ -10,16 +10,6 @@ public class LogicTest {
     public static final int PAWN_Y = 2;
     private Logics logic;
 
-    @Test
-    public void test() {
-        assert(true);
-        // TODO: Add your test logic here
-        // You can generate random inputs and assert the expected output
-        // For example:
-        // int result = Logic.someMethod(5, 10);
-        // assertEquals(expectedResult, result);
-    }
-
     @BeforeEach
     public void setUp() {
         logic = new LogicsImpl(5, 0, 0, PAWN_X, PAWN_Y);
