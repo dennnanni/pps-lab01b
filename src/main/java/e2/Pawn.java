@@ -7,7 +7,7 @@ public class Pawn extends PieceImpl {
     }
 
     @Override
-    public boolean hit(int row, int col, Pair<Integer, Integer> otherPiecePosition) {
+    public boolean hit(int row, int col, Piece piece) {
         return false;
     }
 }

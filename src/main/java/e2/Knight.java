@@ -7,7 +7,7 @@ public class Knight extends PieceImpl {
     }
 
     @Override
-    public boolean hit(int row, int col, Pair<Integer, Integer> otherPiecePosition) {
+    public boolean hit(int row, int col, Piece piece) {
         if (row<0 || col<0 || row >= getFieldSize() || col >= getFieldSize()) {
             throw new IndexOutOfBoundsException();
         }
@@ -16,7 +16,7 @@ public class Knight extends PieceImpl {
         int y = col-getPosition().getY();
         if (x!=0 && y!=0 && Math.abs(x)+Math.abs(y)==3) {
             setPosition(row, col);
-            return otherPiecePosition.equals(getPosition());
+            return piece.getPosition().equals(getPosition());
         }
         return false;
     }

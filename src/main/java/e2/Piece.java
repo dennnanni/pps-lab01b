@@ -2,7 +2,7 @@ package e2;
 
 public interface Piece {
 
-    boolean hit(int row, int col, Pair<Integer, Integer> otherPiecePosition);
+    boolean hit(int row, int col, Piece piece);
 
     Pair<Integer, Integer> getPosition();
 

@@ -24,12 +24,12 @@ public class LogicsImpl implements Logics {
 	private final Pair<Integer,Integer> randomEmptyPosition(){
     	Pair<Integer,Integer> pos = new Pair<>(this.random.nextInt(size),this.random.nextInt(size));
     	// the recursive call below prevents clash with an existing pawn
-    	return this.pawn!=null && this.pawn.equals(pos) ? randomEmptyPosition() : pos;
+    	return this.pawn!=null && this.pawn.getPosition().equals(pos) ? randomEmptyPosition() : pos;
     }
     
 	@Override
 	public boolean hit(int row, int col) {
-		return this.knight.hit(row, col, this.pawn.getPosition());
+		return this.knight.hit(row, col, this.pawn);
 	}
 
 	@Override
