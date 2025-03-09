@@ -8,9 +8,7 @@ public class Knight extends PieceImpl {
 
     @Override
     public boolean hit(int row, int col, Piece piece) {
-        if (row<0 || col<0 || row >= getFieldSize() || col >= getFieldSize()) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkInBound(row, col);
         // Below a compact way to express allowed moves for the knight
         int x = row-getPosition().getX();
         int y = col-getPosition().getY();
@@ -20,4 +18,5 @@ public class Knight extends PieceImpl {
         }
         return false;
     }
+
 }
