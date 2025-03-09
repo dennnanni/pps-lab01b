@@ -6,6 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LogicTest {
 
+    public static final int PAWN_X = 1;
+    public static final int PAWN_Y = 2;
+    private Logics logic;
+
     @Test
     public void test() {
         assert(true);
@@ -16,22 +20,25 @@ public class LogicTest {
         // assertEquals(expectedResult, result);
     }
 
+    @BeforeEach
+    public void setUp() {
+        logic = new LogicsImpl(5, 0, 0, PAWN_X, PAWN_Y);
+    }
+
     @Test
     public void testAreInDifferentPositions() {
-        Logics logic = new LogicsImpl(5);
+        logic = new LogicsImpl(5);
         Pair<Integer, Integer> knight = logic.getKnightPosition();
         assertFalse(logic.hit(knight.getX(), knight.getY()));
     }
 
     @Test
     public void testHit() {
-        Logics logic = new LogicsImpl(5, 0, 0, 1, 2);
-        assertTrue(logic.hit(1, 2));
+        assertTrue(logic.hit(PAWN_X, PAWN_Y));
     }
 
     @Test
     public void testCannotMoveInWrongPosition() {
-        Logics logic = new LogicsImpl(5, 0, 0, 1, 2);
         logic.hit(0, 1);
         assertFalse(logic.hasKnight(0, 1));
     }
